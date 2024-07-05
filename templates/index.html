@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Input Form</title>
+    <!-- Bootstrap CSS (replace the href with the path to your Bootstrap CSS file) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <form method="post" action="/" enctype="multipart/form-data">
+            <h1><center>Adaptive Traffic Management System</center></h1>
+            <div class="form-group">
+                <label for="numVideos">Number of Videos</label>
+                <input type="number" class="form-control" id="numVideos" name="numVideos" min="1" max="4" required>
+                <label for="numVideos">Initial Time for Timer-Based System(Please Give this value only if you want to run timer based system)</label>
+                <input type="number" class="form-control" id="initialTime" name="initialTime" min="10" max="90">
+            </div>
+        
+            <div id="videoInputsContainer"></div>
+        
+            <input type="hidden" id="action" name="action" value="">
+        
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" value="Manual" onclick="submitForm('manual')">
+                <input type="button" class="btn btn-primary" value="Timer-Based" onclick="submitForm('timerbased')">
+                <input type="button" class="btn btn-primary" value="Adaptive" onclick="submitForm('adaptive')">
+            </div>
+        </form>
+    </div>
+    
+    <!-- Bootstrap JS (optional, for Bootstrap components that require JS) -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        function submitForm(action) {
+            document.getElementById('action').value = action;
+            document.querySelector('form').submit();
+        }
+    
+        document.getElementById('numVideos').addEventListener('input', function() {
+            const numVideos = parseInt(this.value);
+            const container = document.getElementById('videoInputsContainer');
+            container.innerHTML = ''; // Clear previous content
+    
+            for (let i = 1; i <= numVideos; i++) {
+                const div = document.createElement('div');
+                div.classList.add('form-group');
+    
+                const label = document.createElement('label');
+                label.textContent = `Video Path ${i}:`;
+                label.classList.add('form-label');
+    
+                const fileInput = document.createElement('input');
+                fileInput.type = 'file';
+                fileInput.name = `videoFile${i}`;  // Set the name attribute
+                fileInput.accept = 'video/*';
+                fileInput.classList.add('form-control-file');
+                fileInput.required = true;
+    
+                div.appendChild(label);
+                div.appendChild(fileInput);
+                container.appendChild(div);
+            }
+        });
+    </script>
+</body>
+</html>
