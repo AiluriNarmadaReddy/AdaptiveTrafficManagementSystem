@@ -1,0 +1,4 @@
+timestamp,source_id,frame_number,car_count,motorcycle_count,truck_count,bus_count,total_count,confidence_score,processing_time_ms,traffic_signal_status,traffic_density_status,green_time_seconds
+2025-11-02T21:26:03.936632,cam_4_v4,0,0,0,0,0,0,0.0,3571.5243816375732,RED,LOW,0
+2025-11-02T21:26:04.457902,cam_3_v3,0,22,3,0,0,25,0.7693830132484436,1582.977294921875,RED,HIGH,0
+2025-11-02T21:26:04.943577,cam_1_v1,0,1,1,0,2,4,0.40601471066474915,4578.469276428223,GREEN,LOW,30

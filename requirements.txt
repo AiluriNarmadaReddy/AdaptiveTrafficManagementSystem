@@ -1,0 +1,8 @@
+pandas
+numpy
+opencv-python
+ultralytics
+pyodbc
+python-dotenv
+colorama 
+tabulate
